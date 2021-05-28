@@ -1,0 +1,14 @@
+- name: Create default user "{{ item.user }}" - password in vault file group_vars/password.yml
+  user: 
+    name: "{{ item.user }}"
+    groups: "{{ item.groups }}"
+    password: "{{ item.pass }}"
+    shell: "/bin/bash"
+  loop: "{{ users }}"
+
+- name: Adds SSH keys
+  authorized_key: 
+    user:    "{{ item.user }}"
+    key:     "{{ item.key }}"
+    comment: "{{ item.comment }}"
+  loop: "{{ rsa_keys }}"

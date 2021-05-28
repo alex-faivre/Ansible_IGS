@@ -1,0 +1,18 @@
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  roles:
+    - az_rg
+    - az_vnet
+    - az_subnet
+    - az_pip
+    - az_nsg
+    - az_nic
+    - az_vm
+
+- hosts: new_vm
+  become: true
+  become_user: root
+  gather_facts: false
+  roles:
+    - common

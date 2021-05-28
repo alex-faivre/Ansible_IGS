@@ -1,0 +1,30 @@
+---
+# tasks file for az_rg
+
+- name: Create resource group "{{ resource_group.name }} in "{{ resource_group.location }}"
+  azure_rm_resourcegroup:
+    name: "{{ resource_group.name }}"
+    location: "{{ resource_group.location }}"
+  register: rg_exist
+  when:
+    - resource_group          is defined
+    - resource_group.name     is defined
+    - resource_group.location is defined
+
+- name: Display resource group name and location
+  debug:
+    msg: "You've just create a new RG {{ resource_group.name }} in {{ resource_group.location }}"
+  when:
+    - resource_group          is defined
+    - resource_group.name     is defined
+    - resource_group.location is defined
+    - rg_exist.changed
+
+- name: Display resource group name and location
+  debug:
+    msg: "You're RG {{ resource_group.name }} in {{ resource_group.location }} is already existing"
+  when:
+    - resource_group          is defined
+    - resource_group.name     is defined
+    - resource_group.location is defined
+    - not rg_exist.changed

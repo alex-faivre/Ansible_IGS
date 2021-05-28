@@ -1,0 +1,31 @@
+---
+# tasks file for az_pip
+
+- name: Create public IP address on "{{ resource_group.name }}"
+  azure_rm_publicipaddress:
+    allocation_method: Static
+    name: "{{ pip.name }}"
+    resource_group: "{{ resource_group.name }}"
+  register: pip_addr
+  when:
+    - pip.name            is defined
+    - resource_group.name is defined
+
+- name: Display dump content of pip_addr
+  debug:
+    var: pip_addr
+  when:
+    - config.debug
+    - pip_addr is defined
+
+- name: Display "{{ pip.name }}" IP 
+  debug:
+    msg: "The public IP is {{ pip_addr.state.ip_address }}"
+
+- name: add_host to group new_vm
+  add_host:
+    name: "maBelleVM"
+    groups: new_vm
+    ansible_ssh_user:  "{{ vm.config.admin_username  }}"
+    ansible_host:      "{{ pip_addr.state.ip_address }}"
+    #ansible_sudo_user: "{{ vm.config.admin_password  }}"

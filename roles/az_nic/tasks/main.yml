@@ -1,0 +1,23 @@
+---
+# tasks file for az_nic
+
+- name: Create a network interface "{{ nic.name }}"
+  azure_rm_networkinterface:
+    name:            "{{ nic.name }}"
+    virtual_network: "{{ vnet.name }}"
+    subnet_name:     "{{ subnet.name }}"
+    security_group:  "{{ nsg.name }}"
+    resource_group:  "{{ resource_group.name }}"
+    ip_configurations:
+      - name: "{{ nic.ip_config.name }}"
+        public_ip_address_name: "{{ pip.name }}"
+        primary: True
+  when:
+    - nic                 is defined
+    - nic.name            is defined
+    - nic.ip_config       is defined
+    - nic.ip_config.name  is defined
+    - vnet.name           is defined
+    - subnet.name         is defined
+    - nsg.name            is defined
+    - resource_group.name is defined

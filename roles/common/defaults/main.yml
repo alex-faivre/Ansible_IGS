@@ -1,0 +1,25 @@
+---
+# defaults file for common
+
+users:
+  - { user: "tinion" , pass: "$6$tKYuuyn7$HZrpkgsT.lCpnRfaFblswl8sczPI5yygMKaNHGpfQn/JK1ShO.3UWVZD495WmfKa1.DHxC4T92ebnBYH4rynw0" , groups: "sudo"}
+
+rsa_keys:
+  - { comment: "tinion@tinion-devops" , user: "tinion" , key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDo1PSJL9wQ7bRWuwXNqNlRRy7sFiPdB7jtXyQXiu55k/B9BDpkUCsnCFDgcsMIxDsdD6jcE5pSAfX6aUm9rx9E9zc8aRi4eb7BIMmdSyOyScOSNXnvpmgPpxzIU8toGnTf/J9yBo0I+l7p2jVlJtAB8ghI5u77TzEzYI3cdK7B1rwMv5Epe5I/rIcY8WPjUpDiqKiagZXR0vIR/3BULR443aryAKmKP3+OShHRXytylhHvRGKz+JULXmn1VqS3atdUicA7NCxDbdbasqEKjUpQrDEa1bZBGbsKRsNKRAq+kxQU2SjA1XgvA9S+cljge3uJmJpcpDR/g+87DnCbazqrXPTIPtgjRDMlzw+TPHI4hE3OrH4UQyT7dsBxKbfN4TxUZW0moG/9BO7+6pAzNfDrIukkn1nxlgX1FjjwJ23SJCGIdYGmSOf3pCju0/Ri0RmAfcKvgpTh2hyWTSPzwo1qMQg58QR32wrZ8gpQfZY9cjYo0b97Tgl03uPvUnO/ZKFnekcW64m3apzCNoeE/lTLmjT5xZOCY/QNCtwuniNOujCx3ooowMD+LCBJMVYB7nhCR4GfrVG7QcXdQG+1wLgpILMODT6ZxFLh0+vVujuTcCIjarcO1usvkbQ/aubctmaGlh9p6OiL+9LsY+PPg2HQPkm2bipJz6smWWgowLHyKQ== tinion@tinion-devops" }
+  - { comment: "root@tinion-devops"   , user: "root"   , key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCeSTXeytQ81s96ZWm9h24KJrQipm2QozSB2tiT5WmXUS/OiGQLyCwqbMq2oKACtINg1hJv4dvrlLxvFrtHQR2HF5XcGNPHN+olJWkZEa1EMywJCrnNHagqhOgGjElsCDIstDc3cUdrAe2KwPgva82EZ0FLC6fBmx4qNAu/+GRtYnp7v79xWOheJA285REOMNkwp9wfjYIR2g0mcsj5KeTe4p4FkWqA5m/Aiyshk9DP/HbvcmuDE/N14HbD48SzjXO4O7md2phE+JIkAsnWzeTd8AcCGOWT7+eMymrKPcV/tJaQHz/1GZvVBc6qsQdCY+ufqPbSj1ow5mCrKFsPSeURwyDzspOmYcXBUAjbhmE8RgZcqUiM5EGIQRO9WANs6f63oJ7H6jAGj9ptX/hiUnKIsyNQ4aRsU78IHCSXNWY+pUVKMRUxJnpXz3zUOEFoCadtbZ9mP4Hc3XeBkwvm4vN+8LWA+UbMd++uiB7xSqtrKVvhES8F7ML0dGm6FepghkyLywl28nG+6RdEVkwT84UTr6mBO1mqRSpWSP7YXKYmZFckwIzqkhdPsjswAsTC/pkkl0zcTA6qCajgHgaG4/b6M+jWDgbdc67LUxwhZh+QGgpB2NAHgyCpaF+dKIw/N7bfMw32zykoGYBpNr+AqQN+++tdYHA5I8AFhFMlf5ktvQ== root@tinion-devops"   }
+  - { comment: "tinion@tinion-xps"    , user: "tinion" , key: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAh48Y0RnryvLK0Hw6kzl9PfCbUfQA9lJeLXP8O8BJmCaYSmTvdX8MmBn4IXVVDLu9BhjSZVtEsMpH7LbSjwQop3OcWPHdeI/VmmpVbbnw5k+ZYJY7x1XmMwEspjqK3KC4enBXqV2+MlhPUnSBdUMyxSs+yGPHMoQdP3FpuCVmujmjS26SYO2YD1k6245wtxHFjC2HWMbBNTawzKk01XAS9EuJi0RXs8I5fFY3laCp9zbldZW2HzyNbuvZti6Z6PppfcHIRo8lNmxtoQcsVCguQgm4dj+0rC5lHxn0L0hxtm7kommDk814hVjcWalMX7O5AVCvgrfI3qqiWhFWH2s16LuxgP0PMqsSagpWSaXJgkU6rm+lAW325UJ2FVIZXUCV/AjlecrqvmdvfRgBk2AKgWL2209WYZ3xJUWSa8sPIkCf80rhP1RAcXZInzhQeXI0FsbRdhFB+bcEjtiDjX+SOdo3TT+S17Cnps85Ciqa2qXmlIoMsuNrznRryGKaeeAmqcx9M7x6CdEZZFcokdnAfnq9N1leezfPOY5+uDq3vHw8hU1WAw7FWe9Xkv/mERS6+Ptwd323er7652M77YAiC5gGC9Hh3t8rJadRG6lyDRMO5E5wyb48OdnW+duzSiYoDNip/fOzS2TOWyn+dT2sjl2KfIHLQH7LE8abC8pxitM= rsa-key-20180302"         } 
+
+packages:
+  - vim
+  - htop
+  - build-essential 
+  - libssl-dev 
+  - libffi-dev 
+  - python-dev
+  - python-setuptools
+  - python3-pip
+  - ntp
+
+
+ssh_PermitRootLogin:        "no"
+ssh_PasswordAuthentication: "yes"

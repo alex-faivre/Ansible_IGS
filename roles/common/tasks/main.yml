@@ -1,0 +1,17 @@
+---
+# tasks file for common
+
+- name: Include basic setup tasks
+  include_tasks: basic_setup.yml
+
+- name: Include users tasks
+  include_tasks: users.yml
+
+- name: Include Update and Upgrade tasks
+  include_tasks: up_to_date.yml
+
+- name: Include packages tasks
+  include_tasks: packages.yml
+
+- name: Include ssh tasks
+  include_tasks: ssh.yml

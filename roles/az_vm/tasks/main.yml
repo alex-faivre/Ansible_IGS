@@ -1,0 +1,19 @@
+---
+# tasks file for az_vm
+- name: Create VM "{{ vm.name }}"
+  azure_rm_virtualmachine:
+    resource_group:     "{{ resource_group.name }}"
+    name:               "{{ vm.name }}"
+    vm_size:            "{{ vm.size }}"
+    admin_username:     "{{ vm.config.admin_username }}"
+    admin_password:     "{{ vm.config.admin_password }}"
+    network_interfaces: "{{ nic.name }}"
+    os_type:            "{{ vm.os_type  }}"
+    image:
+        offer:       "{{ vm.image.offer     }}"
+        publisher:   "{{ vm.image.publisher }}"
+        sku:         "{{ vm.image.sku       }}"
+        version:     "{{ vm.image.version   }}"
+    ssh_public_keys: 
+      - path: "/home/{{ vm.config.admin_username }}/.ssh/authorized_keys"
+        key_data: "{{ ssh_public_key }}"

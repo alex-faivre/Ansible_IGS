@@ -1,0 +1,57 @@
+config:
+  debug: False
+
+resource_group:
+  name: RG-POC-Cloud-Ansible
+  location: westeurope
+
+vnet:
+  name:   ansible_vnet
+  prefix: 10.0.0.0/28
+
+subnet:
+  name:   "{{ vnet.name }}_subnet"
+  prefix: "{{ vnet.prefix }}"
+
+pip:
+  name: ansible_pip
+
+nsg:
+  name: ansible_nsg
+  rules:
+    - { 
+        name:            "allow_ssh" ,
+        access:          "allow"     ,
+        protocol:        "tcp"       ,
+        dest_port_range: ["22"]      ,
+        priority:        "122"       ,
+        direction:       "Inbound"
+      }
+
+nic:
+  name: ansible_nic
+  ip_config:
+    name: ansible_nic_ip_config
+
+vm:
+  name: JLOfDevOps
+  size: Basic_A2
+  os_type: Linux
+  config:
+    admin_username: tinion
+    admin_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          63333339333862366261373939633433396134666633363264373763633661383039376531393131
+          3231306432363965616637646565373136353831636164370a613663363835613335643039656337
+          30313330343038643864353036636164333363326264646266636231303934613464393965323836
+          3833393135353665370a343935343164396262663036623132643166313637323032646665303338
+          6430
+  image:
+    offer: UbuntuServer
+    publisher: Canonical
+    sku: 18.04-LTS
+    version: latest
+  storage_account:
+    name: ansible_stac
+
+ssh_public_key: "{{ lookup('file', '{{ role_path }}/files/ssh_public_key.pub') }}"

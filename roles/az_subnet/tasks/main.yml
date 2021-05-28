@@ -1,0 +1,14 @@
+---
+# tasks file for az_subnet
+
+- name: Add subnet
+  azure_rm_subnet:
+    name: "{{ subnet.name }}"
+    address_prefix:  "{{ subnet.prefix }}"
+    virtual_network: "{{ vnet.name }}"
+    resource_group:  "{{ resource_group.name }}"
+  when:
+    - subnet        is defined
+    - subnet.name   is defined
+    - subnet.prefix is defined
+    - vnet.name     is defined

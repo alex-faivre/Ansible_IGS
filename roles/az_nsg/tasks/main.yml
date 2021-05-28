@@ -1,0 +1,18 @@
+---
+# tasks file for az_nsg
+- name: Create Network Security Group "{{ nsg.name }}"
+  azure_rm_securitygroup:
+    name:           "{{ nsg.name }}"
+    resource_group: "{{ resource_group.name }}"
+    rules:
+        - name:                   "{{ item.name                         }}"
+          protocol:               "{{ item.protocol        | capitalize }}"
+          destination_port_range: "{{ item.dest_port_range | list       }}"
+          access:                 "{{ item.access          | capitalize }}"
+          priority:               "{{ item.priority                     }}"
+          direction:              "{{ item.direction                    }}"
+  loop: "{{ nsg.rules }}"
+  when:
+    - nsg       is defined
+    - nsg.name  is defined
+    - nsg.rules is defined

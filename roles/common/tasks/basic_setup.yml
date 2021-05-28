@@ -1,0 +1,10 @@
+- name: "Sets up the motd"
+  template:
+    src: "templates/motd.j2"
+    dest: "/etc/update-motd.d/20-display-logo"
+    mode: "u+x"
+
+- name: Copy logo on remote server
+  copy:
+    src:  "templates/logo.txt"
+    dest: "/etc/update-motd.d/logo.txt"

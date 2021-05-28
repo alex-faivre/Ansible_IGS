@@ -1,0 +1,6 @@
+- name: Install required packages
+  apt: 
+    name: "{{ item }}" 
+    state: latest
+  loop: "{{ packages }}"
+  when: packages is defined 

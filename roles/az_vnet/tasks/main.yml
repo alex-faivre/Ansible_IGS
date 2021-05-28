@@ -1,0 +1,13 @@
+---
+# tasks file for az_vnet
+
+- name: Create virtual network "{{ vnet.name }}"
+  azure_rm_virtualnetwork:
+    resource_group: "{{ resource_group.name }}"
+    name: "{{ vnet.name }}"
+    address_prefixes: "{{ vnet.prefix }}"
+  when:
+    - vnet                is defined
+    - vnet.name           is defined
+    - vnet.prefix         is defined
+    - resource_group.name is defined
